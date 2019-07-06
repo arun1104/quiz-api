@@ -1,4 +1,3 @@
-require('dotenv').config();
 let express = require('express');
 let fs = require('fs');
 let app = express();
@@ -6,19 +5,22 @@ let cookieParser = require('cookie-parser');
 let cors = require("cors");
 let morgan = require("morgan");
 let swaggerTools = require('swagger-tools');
-let YAML = require('yamljs');
+let yaml = require('js-yaml');
 let routes = require('./routes.js');
-
+let path = require('path');
 app.use(cookieParser());
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+const envConstants = require('./env.json')[process.env.NODE_ENV || 'dev'];
+app.use(morgan('[:date[clf]] :method :url :status :res[content-length] - :response-time ms'));
+
 app.use(cors({
     origin: ["*"],
     methods: ["PUT", "DELETE", "GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-var swaggerDoc = YAML.load('./swagger.yml');
-var options = {
+const ymlPath = path.join(__dirname, '..', 'swagger.yml');
+const swaggerDoc = yaml.safeLoad(fs.readFileSync(ymlPath, 'utf8'));
+const options = {
     controllers: routes,
     useStubs: process.env.NODE_ENV === 'development' ? true : false // Conditionally turn on stubs (mock mode)
 };
@@ -37,7 +39,8 @@ swaggerTools.initializeMiddleware(swaggerDoc, function(middleware) {
     app.use(middleware.swaggerUi());
 
     // Start the server
-    app.listen(process.env.PORT || 3000, function() {
-        console.log('Your server is listening on port %d (http://localhost:%d)', process.env.PORT || 3000);
+    const port = (process.env.PORT) ? process.env.PORT : 3000;
+    app.listen(port, function() {
+        console.log('Your server is listening on port %d', port);
     });
 });
