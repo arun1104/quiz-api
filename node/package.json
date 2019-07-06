@@ -1,0 +1,26 @@
+{
+  "name": "quiz-api",
+  "version": "1.0.0",
+  "description": "quiz web application",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arun1104/quiz-api.git"
+  },
+  "keywords": [
+    "quiz",
+    "swagger"
+  ],
+  "author": "arun rajeevan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arun1104/quiz-api/issues"
+  },
+  "homepage": "https://github.com/arun1104/quiz-api#readme"
+}
