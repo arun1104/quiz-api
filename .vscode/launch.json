@@ -6,7 +6,7 @@
     "configurations": [{
             "type": "node",
             "request": "launch",
-            "name": "Mocha Tests",
+            "name": "Mocha Unit tests",
             "program": "${workspaceRoot}/node/node_modules/mocha/bin/_mocha",
             "args": [
                 "--recursive",
@@ -14,8 +14,24 @@
                 "999999",
                 "--colors",
 
-                "${workspaceRoot}/node/test"
+                "${workspaceRoot}/node/test/unit"
             ],
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Integration tests",
+            "program": "${workspaceRoot}/node/node_modules/mocha/bin/_mocha",
+            "args": [
+                "--recursive",
+                "--timeout",
+                "999999",
+                "--colors",
+
+                "${workspaceRoot}/node/test/integration"
+            ],
+            "env": { "apiUrl": "http://localhost:5001" },
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
