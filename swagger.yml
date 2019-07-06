@@ -158,23 +158,7 @@ paths:
 definitions:
   Domain:
     type: "object"
-    required:
-    - "name"
-    - "description"
-    properties:
-      name:
-        type: "string"
-        example: "Countries"
-      description:
-        type: "string"
   Domains:
     type: array
     items:
       $ref: '#/definitions/Domain'
-  ApiResponse:
-    type: "object"
-    properties:
-      data:
-        type: "string"
-      message:
-        type: "string"
