@@ -1,6 +1,7 @@
 let express = require('express');
 let fs = require('fs');
 let app = express();
+var bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let cors = require("cors");
 let morgan = require("morgan");
@@ -9,6 +10,7 @@ let yaml = require('js-yaml');
 let routes = require('./routes.js');
 let path = require('path');
 app.use(cookieParser());
+app.use(bodyParser.json())
 const envConstants = require('./env.json')[process.env.NODE_ENV || 'dev'];
 app.use(morgan('[:date[clf]] :method :url :status :res[content-length] - :response-time ms'));
 
