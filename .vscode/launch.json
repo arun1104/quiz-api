@@ -9,11 +9,12 @@
             "name": "Mocha Unit tests",
             "program": "${workspaceRoot}/node/node_modules/mocha/bin/_mocha",
             "args": [
+                "--reporter",
+                "mochawesome",
                 "--recursive",
                 "--timeout",
                 "999999",
                 "--colors",
-
                 "${workspaceRoot}/node/test/unit"
             ],
             "internalConsoleOptions": "openOnSessionStart"
@@ -24,11 +25,12 @@
             "name": "Mocha Integration tests",
             "program": "${workspaceRoot}/node/node_modules/mocha/bin/_mocha",
             "args": [
+                "--reporter",
+                "mochawesome",
                 "--recursive",
                 "--timeout",
                 "999999",
                 "--colors",
-
                 "${workspaceRoot}/node/test/integration"
             ],
             "env": { "apiUrl": "http://localhost:5001" },
