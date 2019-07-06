@@ -64,7 +64,7 @@ paths:
         description: "domain object"
         required: true
         schema:
-          $ref: "#/definitions/Domain"
+          $ref: "#/definitions/ReqDomain"
       responses:
         201:
           description: "Created domain successfully"
@@ -156,6 +156,15 @@ paths:
         500:
           description: "Internal server error"
 definitions:
+  ReqDomain:
+    type: "object"
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      description:
+        type: string
   Domain:
     type: "object"
   Domains:

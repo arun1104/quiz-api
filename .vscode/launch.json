@@ -7,14 +7,14 @@
             "type": "node",
             "request": "launch",
             "name": "Mocha Tests",
-            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "program": "${workspaceRoot}/node/node_modules/mocha/bin/_mocha",
             "args": [
-                "-u",
-                "tdd",
+                "--recursive",
                 "--timeout",
                 "999999",
                 "--colors",
-                "${workspaceRoot}/test"
+
+                "${workspaceRoot}/node/test"
             ],
             "internalConsoleOptions": "openOnSessionStart"
         },
