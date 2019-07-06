@@ -22,13 +22,14 @@
             "type": "node",
             "request": "launch",
             "name": "Mocha current file",
-            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "program": "${workspaceRoot}/node/node_modules/mocha/bin/_mocha",
             "args": [
                 "-u",
                 "tdd",
                 "--timeout",
                 "999999",
-                "--colors"
+                "--colors",
+                "${file}"
             ],
             "internalConsoleOptions": "openOnSessionStart"
         },
