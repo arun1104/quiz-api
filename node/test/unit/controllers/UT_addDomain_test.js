@@ -12,7 +12,7 @@ let res = {
 };
 
 describe('addDomain positive suit', function() {
-    it('should return 200 for valid domain', function() {
+    it('should return 201 for valid domain', function() {
         addDomain(req, res);
         assert.equal(res.httpCode, 201);
     });
