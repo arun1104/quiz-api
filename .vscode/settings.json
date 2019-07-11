@@ -1,0 +1,5 @@
+{
+    "mocha.files.glob": "C:\\quiz-api\\quiz-api\\node\\test\\unit\\controllers\\*.js",
+    "mocha.subdirectory": "C:\\\\quiz-api\\\\quiz-api\\\\node\\\\test\\\\unit\\\\controllers",
+    "mocha.path": "C:\\quiz-api\\quiz-api\\node\\node_modules\\mocha"
+}
