@@ -7,8 +7,9 @@
         "test": "test"
     },
     "scripts": {
-        "test": "test",
-        "start": "node -r dotenv/config app.js"
+        "test": "node ../node/node_modules/mocha/bin/_mocha --recursive ../node/test/unit",
+        "start": "node -r dotenv/config app.js",
+        "coverage": "nyc npm run test"
     },
     "repository": {
         "type": "git",
